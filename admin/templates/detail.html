@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>后台管理</title>
+<link href="style/style.css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+<div class="wrapper">
+    <div id="title_bar">
+	    <div class="welcome mh">欢迎回来：<b>Admin</b>  <a href="/account/logout">退出</a>  </div>
+        <ul class="nav">
+            <li><a href="/">首页</a></li>
+        </ul>
+    </div>
+
+    <div class="account_dash_left">
+        <div class="table big" style="margin-top:10px">
+          <form action="save.php" method="post">
+            <table cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                    <th width="100">&nbsp;</th>
+                    <th width="auto">&nbsp;</th>
+                </tr>
+                <tr>
+                    <td>ID</td>
+                    <td class="detail"><input type="text" name="id" value="<?php echo $article['id']; ?>" style="background:#ccc"></td>
+                </tr>
+                <tr>
+                    <td>category_id</td>
+                    <td class="detail"></td>
+                    <?php
+                    $checked = '';
+                    foreach($category as $k => $v) {
+                        $checked = '';
+                        if($k == $article['category_id']) {
+                            $checked = ' checked="checked"';
+                        }
+                        echo '<label><input type="radio" name="category_id" value="'.$k.'"'.$checked.'>'.$v[0].'</label>';
+                    }
+                    ?>
+                </tr>
+                <tr>
+                    <td>title</td>
+                    <td class="detail"><input type="text" name="title" value="<?php echo $article['title']; ?>" size="50"></td>
+                </tr>
+                <tr>
+                    <td>pub_time</td>
+                    <td class="detail"><input type="text" name="pub_time" value="<?php echo $article['pub_time']; ?>"></td>
+                </tr>
+                <tr>
+                    <td>url</td>
+                    <td class="detail"><input type="text" name="url" value="<?php echo $article['url']; ?>" size="90"> <a href="<?php echo $article['url']; ?>" target="_blank">查看</a></td>
+                </tr>
+                <tr>
+                    <td>pic</td>
+                    <td class="detail"><textarea rows="4" name="pic" cols="150"><?php echo $article['pic']; ?></textarea></td>
+                </tr>
+                <tr>
+                    <td>content</td>
+                    <td class="detail"><?php 
+                    $content = $article['content']; 
+                    $p_start_count = substr_count($content, '<p');
+                    $p_end_count = substr_count($content, '</p>');
+
+                    echo '<div>', htmlspecialchars('<p>'), $p_start_count, ', ', htmlspecialchars('</p>'), $p_end_count,'</div>';
+                    ?>
+                    <textarea name="content" rows="24" cols="150"><?php
+                    $content = str_replace("</p>", "</p>\n\n", $content);
+                    echo $content;
+                    ?></textarea></td>
+                </tr>
+                <tr>
+                    <td>create_time</td>
+                    <td class="detail"><input type="text" name="create_time" value="<?php echo $article['create_time']; ?>"></td>
+                </tr>
+                <tr>
+                    <td>source</td>
+                    <td class="detail"><input type="text" name="source" value="<?php echo $article['source']; ?>"></td>
+                </tr>
+                <tr>
+                    <td>recommend</td>
+                    <td class="detail"><input type="text" name="recommend" value="<?php echo $article['recommend']; ?>"></td>
+                </tr>
+                <tr>
+                    <td>status</td>
+                    <td class="detail"><input type="text" name="status" value="<?php echo $article['status']; ?>"></td>
+                </tr>
+                <tr>
+                    <td>&nbsp;</td>
+                    <td class="detail"><input id="login" class="button" type="submit" value="保 存"></td>
+                </tr>
+            </table>
+          </form>
+        </div>
+    </div>
+
+    <div class="clearit">&nbsp;</div>
+    <div class="clearit">&nbsp;</div>
+</div>
+
+<div id="pre_next">
+	<a href="detail.php?id=<?php echo $pre_article_id; ?>" target="_self"> ↑ </a>
+	<a href="detail.php?id=<?php echo $next_article_id; ?>" target="_self"> ↓ </a>
+</div>
+
+</body>
+</html>

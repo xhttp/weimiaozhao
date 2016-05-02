@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html lang="zh">
+<head>
+<meta charset="UTF-8">
+<title>后台管理</title>
+<link href="style/style.css" rel="stylesheet" media="screen" />
+</head>
+
+<body>
+<div class="wrapper">
+    <div id="title_bar">
+	    <div class="welcome mh">欢迎回来：<b>Admin</b>  <a href="logout.php">退出</a>  </div>
+        <ul class="nav">
+            <li><a href="/">首页</a></li>
+        </ul>
+    </div>
+
+    <div class="account_dash_left">
+        <p>&nbsp; &nbsp;总条数 <b><?php echo $total; ?></b> </p>
+
+        <div class="table big" style="margin-top:10px">
+            <table cellpadding="0" cellspacing="0" border="0" style="word-wrap:break-word;word-break:break-all;">
+                <tr>
+				    <th width="50">id</th>
+                    <th width="50">category_id</th>
+                    <th width="200">title</th>
+                    <th width="100">pub_time</th>
+                    <th width="100">url</th>
+                    <th width="100">pic</th>
+                    <th width="100">create_time</th>
+                    <th width="60">source</th>
+                    <th width="60">recommend</th>
+                    <th width="60">status</th>
+                    <th width="60">操作</th>
+			    </tr>
+                <?php
+                foreach($list as $k => $v) {
+                ?>
+                <tr>
+                    <td><?php echo $v['id']; ?></td>
+                    <td><?php echo $v['category_id']; ?></td>
+                    <td><?php echo $v['title']; ?></td>
+                    <td><?php echo $v['pub_time']; ?></td>
+                    <td><?php echo $v['url']; ?></td>
+                    <td><?php echo $v['pic']; ?></td>
+                    <td><?php echo $v['create_time']; ?></td>
+                    <td><?php echo $v['source']; ?></td>
+                    <td><?php echo $v['recommand']; ?></td>
+                    <td><?php echo $v['status']; ?></td>
+                    <td><a target="_blank" href="detail.php?id=<?php echo $v['id']; ?>">修改</a></td>
+                </tr>
+                <?php
+                }
+                ?>
+            </table>
+
+            <ul class="paginator">
+                <?php
+                /*
+                for($i=1; $i<=$total_page; $i++) {
+                    if($i == $page) {
+                        echo '<li class="current">'.$i.'</li>';
+                    } else {
+                        echo '<li><a href="index.php?page='.$i.'&total='.$total.'">'.$i.'</a></li>';
+                    }
+                }
+                */
+
+                $limit = 5;
+                $start_page = $page - $limit;
+                $end_page   = $page + $limit;
+                if($start_page < 1) {
+                    $end_page   = $end_page + (1 - $start_page);
+                    $start_page = 1;
+                }
+                if($end_page > $total_page) {
+                    $start_page = $start_page - ($end_page - $total_page);
+                    $end_page   = $total_page;
+                }
+                if($start_page < 1) {
+                    $start_page = 1;
+                }
+
+                echo '<li><a href="index.php?page=1&total='.$total.'">首页</a></li>';
+                for($i=$start_page; $i<=$end_page; $i++) {
+                    if($i == $page) {
+                        echo '<li class="current">'.$i.'</li>';
+                    } else {
+                        echo '<li><a href="index.php?page='.$i.'&total='.$total.'">'.$i.'</a></li>';
+                    }
+                }
+                echo '<li><a href="index.php?page='.$total_page.'&total='.$total.'">尾页</a></li>';
+                echo '<li> 共 <b>'.$total.'</b> 条数据，<b>'.$total_page.'</b> 页</li>';
+                ?>
+	        </ul>
+        </div>
+    </div>
+
+	<div class="clearit">&nbsp;</div>
+    <div class="clearit">&nbsp;</div>
+</div>
+
+</body>
+</html>
