@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<title><?php echo $article['title']; ?></title>
+<meta content="" name="Keywords">
+<meta name="description" content="">
+
+<style type="text/css">
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+body{font:12px "微软雅黑","宋体","Arial Narrow",HELVETICA;background:#fff;color:#020202;-webkit-text-size-adjust:100%}
+a{color:#172c45;text-decoration:none}
+a:hover{color:#cd0200;text-decoration:underline}
+em{font-style:normal}
+li{list-style:none}
+img{border:0;vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word}
+.clear:after{content:"";display:table;clear:both}
+.top{width:100%;height:66px;background:#efefef;position:fixed;top:0;left:0;z-index:99;}
+.top .logo{float:left;width:119px;height:66px;display:block;background:url(http://www.wmz.com/images/logo.jpg) no-repeat;background-image:-webkit-image-set(url(http://www.wmz.com/images/logo.jpg) 1x,url(http://mat1.gtimg.com/kb/images/kblogo2x.jpg) 2x);}
+.top ul.topul{width:1000px;padding-top:14px;position:absolute;top:0;left:49%;margin-left:-500px;}
+.top ul.topul li{float:left;width:70px;text-align:center;color:#3d3d3d;font-size:16px;padding:13px 0;cursor:pointer;}
+.top ul.topul li.current{color:#e13b19;border-bottom:5px solid #e13b19;display:block;}
+.top ul.topul li.local{display:block;}
+.top ul.topul li.liMore{height:66px;line-height:75px;padding:0;margin-top:-14px;cursor:default;background:url(http://mat1.gtimg.com/kb/images/navmore.png) no-repeat 52px 35px;}
+.top ul.topul li.liMore:hover{width:68px;border-left:1px solid #d9dadb;border-right:1px solid #d9dadb;background:#f7f7f7 url(http://mat1.gtimg.com/kb/images/navmore2.png) no-repeat 51px 35px;;position:relative;}
+.top ul.topul li.liMore .navMore{display:none;position:absolute;top:66px;left:-1px;width:136px;border:1px solid #d9dadb;border-top:0;background-color:#f7f7f7;}
+.top ul.topul li.liMore:hover .navMore{display:block;}
+.top ul.topul li .navMore ul{width:100%;}
+.top ul.topul li .navMore li{width:50%;height:46px;line-height:46px;padding:0;}
+.top ul.topul li .navMore li a{width:100%;height:46px;line-height:46px;display:block;}
+.top ul.topul li .navMore li a:hover{background:#ececec;color:#e13b19;text-decoration:none;}
+
+.top .login-layout{float:right;display:inline;margin:0 31px 0 0;}
+.top .login-layout .login{display:none;width:66px;height:38px;margin-top:12px;background:url(http://www.wmz.com/images/logintopbtn.png) no-repeat;}
+.top .login-layout .login a{display:block;width:66px;height:38px;}
+.top .login-layout .logined{display:none;position:relative;width:39px;height:39px;padding:13px 10px;}
+.top .login-layout .logined:hover{background:#ddd;}
+.top .login-layout .logined img{width:39px;height:39px;border-radius:100%;-moz-border-radius:100%;-webkit-border-radius:100%;-o-border-radius:100%;}
+.top .login-layout .logined .loginout{width:59px;height:29px;line-height:28px;border-top:1px solid #ededed;background:#ddd;text-align:center;font-size:16px;color:#909090;position:absolute;right:0;bottom:-29px;z-index:9;}
+.top .login-layout .logined .loginout a{color:#000;width:59px;height:29px;display:block;}
+.top .login-layout .logined .loginout a:hover{color:#fff;background:#d13b1d;text-decoration:none;}
+.top .weather-layout{float:right;display:inline;margin:14px 21px 0 0;font-size:16px;color:#000;}
+.top .weather-layout .weather-icon img{height:39px;}
+
+#weather-icon{float:left;}
+#weather-icon img{height:39px;}
+#weather-city{float:left;display:inline;margin:6px 16px 0 14px;}
+.weather-temperature{float:left;margin-top:6px;}
+.title-icon{float:left;margin:3px 9px 33px 1px;}
+
+.more-top{border-bottom:1px solid #e0e0e0;padding:20px 0;}
+.more-top a{width:307px;height:36px;text-align:center;line-height:36px;border:1px solid #d4d4d4;border-radius:18px;-moz-border-radius:18px;-webkit-border-radius:18px;-o-border-radius:18px;font-size:14px;color:#909090;display:block;margin:0 auto;}
+.more-top a:hover{border:1px solid #ff8500;color:#ff8500;text-decoration:none;}
+.more-bottom{padding:38px 0;text-align:center;font-size:14px;color:#909090;}
+.box-txt,.box-imgsmall,.box-imgbig,.box-imgs,.box-video{width:100%;padding:17px 0 20px;border-bottom:1px solid #e0e0e0;overflow:hidden;}
+.article-inner h2{font-size:26px;font-weight:normal;text-align:center;color:#020202;padding:40px 0 0;}
+.article-inner .source_comment{
+	font-size:14px;
+	font-family:"Microsoft YaHei",微软雅黑,"MicrosoftJhengHei";
+	color : #a1a1a1;
+	margin : 30px 0 0 50px;
+	float : left;
+}
+.tipstop{padding-top:39px;}
+.imgsmallbox img{width:150px;height:110px;float:right;margin:4px 0 0 23px;}
+.imgbigbox{width:100%;margin-bottom:16px;}
+.imgbigbox img{width:581px;height:278px;}
+.imgsbox{width:100%;margin-bottom:16px;}
+.imgsbox img{width:216px;height:162px;float:left;margin-right:4px;}
+.videobox{width:100%;padding-top:20px;}
+.videobox div{text-align:center;}
+.tips p{float:left;font-size:14px;color:#909090;padding-top:14px;display:none;}
+.tips .shareIcon{width:33px;height:33px;display:block;background:url(http://mat1.gtimg.com/kb/images/shareIcon.png) no-repeat;cursor:pointer;float:right;margin-left:12px;position:relative;}
+.tips .shareing{position:absolute;top:0;right:0;background:#fff;width:233px;height:31px;border:1px solid #ff8500;border-radius:31px;-moz-border-radius:31px;-webkit-border-radius:31px;-o-border-radius:31px;}
+.tips .shareing p{height:31px;line-height:31px;float:left;font-size:12px;color:#8d8d8d;padding:0 0 0 31px;background:url(http://mat1.gtimg.com/kb/images/shareBg.png) no-repeat 7px center;display:block;}
+.iShareWrap{width:116px!important;clear:none!important;padding-top:3px;}
+.iShareWrap a.iShare_1_QQ{background-position:left -37px!important;}
+.iShareWrap a.iShare_1_QQ:hover{background-position:-36px -36px!important;}
+.tips .likeIcon{width:33px;height:33px;display:block;background:url(http://mat1.gtimg.com/kb/images/likeIcon.png) no-repeat;cursor:pointer;float:right;display:none;}
+.tips .likeIcon:hover{background:url(http://mat1.gtimg.com/kb/images/likedIcon.png) no-repeat;}
+.tips .likedIcon{width:33px;height:33px;display:block;background:url(http://mat1.gtimg.com/kb/images/likedIcon.png) no-repeat;cursor:pointer;float:right;}
+.title-icon{float:left;margin:3px 9px 60px 1px;}
+.article-content{padding:35px 0 33px;}
+.article-content p{font-size:16px;line-height:34px;padding:17px 0;position:relative;}
+.likeit{width:119px;height:38px;display:block;background:url(http://mat1.gtimg.com/kb/images/likeicon.png) no-repeat left top;cursor:pointer;float:left;margin-right:32px;outline:none;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.likeit:hover{background:url(http://mat1.gtimg.com/kb/images/likeicon.png) no-repeat left -50px;}
+.likedit{width:119px;height:38px;display:block;background:url(http://mat1.gtimg.com/kb/images/likeicon.png) no-repeat left -100px;cursor:pointer;float:left;margin-right:32px;}
+.nolikeit{width:119px;height:38px;display:block;background:url(http://mat1.gtimg.com/kb/images/likeicon.png) no-repeat right top;cursor:pointer;float:left;outline:none;-webkit-tap-highlight-color: rgba(0,0,0,0);}
+.nolikeit:hover{background:url(http://mat1.gtimg.com/kb/images/likeicon.png) no-repeat right -50px;}
+.nolikedit{width:119px;height:38px;display:block;background:url(http://mat1.gtimg.com/kb/images/likeicon.png) no-repeat right -100px;cursor:pointer;float:left;}
+.tipsbottom .shareIcon{display:none;}
+#relate-news{width:100%;background:#fafafa;padding:30px 0;}
+.relate-news{width:1200px;margin:0 auto;}
+.relate-news-inner{width:700px;float:left;}
+.relate-news-inner .hd{width:700px;float:left;border-top:1px solid #e0e0e0;}
+.relate-news-inner .hd h3{padding:6px 0 0 10px;font-size:16px;font-weight:normal;color:#020202;border-top:1px solid #272727;float:left;margin-top:-1px;}
+.relate-news-inner .bd{width:700px;float:left;margin-top:20px;}
+.relate-news-inner .bd li{width:100%;float:left;border-bottom:1px solid #e0e0e0;padding:6px 0;}
+.relate-news-inner .bd li .fleft{float:left;width:100%;font-size:20px;line-height:32px;font-weight:normal;}
+.relate-news-inner .bd li .fright{float:right;padding-top:10px;font-size:14px;color:#909090;}
+.relate-news-inner .bd li .fright a{color:#909090;}
+#tcopyright{width:620px;}
+
+#large .content{width:1200px;margin:0 auto;border-top:66px solid #efefef;}
+#large .content:after{content:"";display:table;clear:both}
+#large .contentLeft{width:700px;float:left;position:relative;}
+#large .contentLeft .refresh{width:51px;height:51px;background:url(http://mat1.gtimg.com/kb/images/refresh.png) no-repeat;position:fixed;bottom:0;left:50%;margin-left:140px;cursor:pointer;}
+#large .contentLeft .refresh:hover{background:url(http://mat1.gtimg.com/kb/images/refreshHover.png) no-repeat;}
+
+#large .article-content .article-img{margin:17px auto;padding:0;position:relative;}
+#large .article-content .article-img p{padding:0;}
+#large .article-content .article-txt p{padding:17px 0;}
+#large .article-content .article-img .repi{position:absolute;margin:-2px 0 0 -2px;height:23px;line-height:23px;font-size:14px;color:#000;}
+#large .article-content .article-img .repi em{width:13px;height:14px;overflow:hidden;background:url(http://mat1.gtimg.com/kb/images/repiImgIcon.png) no-repeat;float:left;}
+#large .article-content .article-img .repi p{clear:both;float:left;display:inline;margin-left:7px;padding:0 6px;overflow:hidden;height:23px;line-height:23px;font-size:14px;color:#000;background:#fdc608;border-radius:0 6px 6px;-moz-border-radius:0 6px 6px;-webkit-border-radius:0 6px 6px;-o-border-radius:0 6px 6px;box-shadow:2px 2px 5px #333333;;-moz-box-shadow:2px 2px 5px #333333;-webkit-box-shadow:2px 2px 5px #333333;-o-box-shadow:2px 2px 5px #333333;}
+#large .article-content .article-txt{margin:0 auto;position:relative;}
+#large .article-content .repi-txt{width:348px;position:absolute;top:17px;right:-366px;display:none;}
+#large .article-content .repi-txt .hd{width:100%;float:left;height:33px;}
+#large .article-content .repi-txt-current .hd{border-bottom:1px solid #e0e0e0;}
+#large .article-content .repi-txt .hd p{font-size:12px;line-height:16px;padding:15px 0 0 19px;color:#c8c8c8;background:url(http://mat1.gtimg.com/kb/images/pizhu.png) no-repeat;}
+#large .article-content .repi-txt-current .hd p{color:#000;background:url(http://mat1.gtimg.com/kb/images/pizhuCurrent.png) no-repeat;}
+#large .article-content .repi-txt .bd{padding:0 0 0 71px;width:277px;float:left;display:none;}
+#large .article-content .repi-txt-current .bd{display:block;}
+#large .article-content .repi-txt .bd .repi{width:100%;float:left;padding:11px 0;border-bottom:1px solid #e0e0e0;}
+#large .article-content .repi-txt .bd .repi-user{width:100%;height:40px;float:left;}
+#large .article-content .repi-txt .bd .repi-user img{width:40px;height:40px;float:left;border-radius:100%;-moz-border-radius:100%;-webkit-border-radius:100%;-o-border-radius:100%;}
+#large .article-content .repi-txt .bd .repi-user h4{float:left;padding:8px 0 0 10px;font-weight:normal;font-size:16px;color:#020202;display:none;}
+#large .article-content .repi-txt .bd .repi-comment{width:230px;float:right;display:none;}
+#large .article-content .repi-txt .bd .repi-comment p{width:100%;float:left;margin:0;padding:0;line-height:20px;font-size:14px;}
+
+#middle .duanzi,#middle .chaobao,#middle .xiuxian,#middle .youxi{display:none;}
+#middle .top ul.topul{width:650px;margin-left:-291px;}
+#middle .content{width:700px;margin:0 auto;border-top:66px solid #efefef;}
+#middle .content:after{content:"";display:table;clear:both}
+#middle .contentLeft{width:700px;margin:0 auto;position:relative;}
+#middle .contentLeft .refresh{width:51px;height:51px;background:url(http://mat1.gtimg.com/kb/images/refresh.png) no-repeat;position:fixed;bottom:0;left:50%;margin-left:349px;cursor:pointer;}
+#middle .contentLeft .refresh:hover{background:url(http://mat1.gtimg.com/kb/images/refreshHover.png) no-repeat;}
+#middle .sidebar{display:none;}
+#middle .article-img .repi{display:none;}
+#middle .article-txt .repi-txt{display:none;}
+#middle .relate-news{width:100%;background:#fafafa;padding:30px 0;}
+#middle .relate-news-inner{width:700px;margin:0 auto;float:none;}
+#middle .relate-news-inner .hd{width:100%;}
+#middle .relate-news-inner .bd{width:100%;}
+
+#small .meitu,#small .duanzi,#small .chaobao,#small .xiuxian,#small .youxi{display:none;}
+#small .top .login-layout{position:relative;z-index:999;}
+#small .small_nav{display:block;width:100%;background:#fff;position:absolute;top:66px;left:0;}
+#small .navLayout{display:none;}
+.small_nav{display:none;}
+#small .top ul.topul{width:370px;padding-top:2px;position:absolute;top:0px;left:50%;margin-left:-185px;border-bottom:1px solid #e0e0e0;background:#fff;height:93px;overflow:hidden;}
+#small .top ul.open{height:138px;}
+#small .top li{float:left;width:59px;text-align:center;color:#3d3d3d;font-size:16px;padding:12px 0;cursor:pointer;margin-right:15px;}
+#small .top li a{color:#a1a1a1;}
+#small .top li.current{color:#e13b19;padding:12px 0 10px;border-bottom:2px solid #e13b19;display:block;}
+#small .top li.current a{color:#e13b19;}
+#small .top li.more_nav{background:url(http://mat1.gtimg.com/kb/images/navmore.png) no-repeat 47px 22px;}
+#small .top li.more_nav:hover{background:url(http://mat1.gtimg.com/kb/images/navmore2.png) no-repeat 47px 22px;}
+#small .top ul.topul li.hideListCont{padding:0; }
+#small .content{width:367px;margin:0 auto;border-top:160px solid #fff;}
+#small .contentopen{border-top:205px solid #fff;}
+#small .content:after{content:"";display:table;clear:both}
+#small .contentLeft{width:366px;margin:0 auto;position:relative;}
+#small .contentLeft .refresh{display:none;}
+#small .sidebar{display:none;}
+#small .article-inner h2{padding:26px 0 3px;}
+#small .article-content p img{max-width:366px;}
+#small .tipstop .shareIcon,#small .tipstop .likeIcon{display:none;}
+#small .tipsbottom .likeit,#small .tipsbottom .likedit{margin-right:12px;}
+#small .article-img .repi{display:none;}
+#small .article-txt .repi-txt{display:none;}
+#small #relate-news{background:#fafafa;}
+#small .relate-news{width:366px;margin:0 auto;}
+#small .relate-news-inner{width:100%;}
+#small .relate-news-inner .hd{width:100%;}
+#small .relate-news-inner .bd{width:100%;}
+#small .tcopyright{width:340px;}
+#small #login_div{width:280px!important;height:270px!important;top:50px!important;margin:0 0 0 -140px!important;}
+.mask{width:100%;background:#000;opacity:0.5;filter:alpha(opacity=50);position:absolute;top:0;left:0;z-index:100;}
+.comment{padding:55px 0 45px;visibility:hidden;}
+#small .comment{padding:15px 0 45px;visibility:hidden;}
+.guangaoWrap{display:none;margin-top:15px;}
+#small .guangaoWrap{display:block;}
+.block{display:block!important;}
+
+.share_list{padding-top:3px;}
+.share_list .phone{position:relative; width:24px;height:24px;margin-right:5px;background:url(http://mat1.gtimg.com/joke/tomiezhang/ishare/icon_dev.png) no-repeat -232px -36px;display:block;cursor:pointer;float:left}
+.share_list .phone:hover{background-position:-232px -160px;}
+.share_list .phone i{position:absolute;width:120px;height:120px;background:#fff;top:-130px;right:0px;display:none; }
+.share_list a{display:block;text-indent:-999em;overflow:hidden; background:url(http://mat1.gtimg.com/joke/tomiezhang/ishare/icon_dev.png) no-repeat ;width:24px;height:24px;margin-right:5px;float:left}
+.share_list a.wb_list{background-position:-29px -36px ;}
+.share_list a.qzone_list{background-position:-58px -36px ;}
+.share_list a.qq_list{background:url(http://mat1.gtimg.com/joke/tomiezhang/ishare/ishareQQ.png) no-repeat 0 -37px ;}
+.share_list a.xl_list{background-position:0 -36px ;}
+.share_list a.wb_list:hover{background-position:-29px -160px ;}
+.share_list a.qzone_list:hover{background-position:-58px -160px ;}
+.share_list a.qq_list:hover{background-position:-36px -36px ;}
+.share_list a.xl_list:hover{background-position:0 -160px ;}
+
+#large .sidebar{width:339px;position:absolute;right:0;background:#fafafa;padding:33px 31px;}
+#large .sidebar .hd{width:100%;float:left;border-top:1px solid #e0e0e0;margin-top:32px;}
+#large .sidebar .hd h3{padding:6px 0 0 0;font-size:16px;font-weight:normal;color:#020202;border-top:1px solid #272727;float:left;margin-top:-1px;}
+#large .sidebar .bd{width:100%;float:left;}
+#large .sidebar .ft{width:100%;height:100px;float:left;margin-top:40px;background:url(http://mat1.gtimg.com/kb/images/download.png) no-repeat;position:relative;}
+#large .sidebar .ft a{width:100%;height:100px;display:block;}
+#large .sidebar .ft .ftios{display:none;width:124px;height:124px;background:#f1f1f1 url(http://mat1.gtimg.com/kb/images/ewcode.png) no-repeat center center;padding:22px;position:absolute;top:-160px;left:0px;border-radius:8px 8px 0 0;-moz-border-radius:8px 8px 0 0;-webkit-border-radius:8px 8px 0 0;-o-border-radius:8px 8px 0 0;}
+#large .sidebar .ft:hover .ftios{display:block;}
+#large .sidebar .fankui{width:98px;height:23px;display:block;float:left;margin-top:28px;background:url(http://mat1.gtimg.com/kb/images/fankui.png) no-repeat left top;}
+#large .sidebar .fankui:hover{background:url(http://mat1.gtimg.com/kb/images/fankui.png) no-repeat left bottom;}
+#large .sidebar .asd01{width:100%;float:left;margin-top:40px;}
+#large .sidebar .asd02{width:100%;float:left;}
+#large .sidebar .repi-title{float:left;width:100%;font-size:16px;line-height:20px;font-weight:normal;margin-top:20px;}
+#large .sidebar .repi-title h4{font-size:20px;font-weight:normal;color:#020202;line-height:28px;}
+#large .sidebar .repi-img{float:left;}
+#large .sidebar .repi-img .repi-content{width:339px;height:163px;float:left;margin-top:15px;position:relative;}
+#large .sidebar .repi-img .repi-content img{width:339px;height:163px;}
+#large .sidebar .repi-img .repi-content .repi{position:absolute;margin:-2px 0 0 -2px;height:23px;line-height:23px;font-size:14px;color:#000;}
+#large .sidebar .repi-img .repi-content .repi em{width:13px;height:14px;overflow:hidden;background:url(http://mat1.gtimg.com/joke/golden/kb/repiImgIcon.png) no-repeat;_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src='http://mat1.gtimg.com/joke/golden/kb/repiImgIcon.png');float:left;}
+#large .sidebar .repi-img .repi-content .repi p{clear:both;float:left;display:inline;margin-left:7px;padding:0 6px;overflow:hidden;height:23px;line-height:23px;font-size:14px;color:#000;background:#fdc608;border-radius:0 6px 6px;-moz-border-radius:0 6px 6px;-webkit-border-radius:0 6px 6px;-o-border-radius:0 6px 6px;box-shadow:2px 2px 5px #333333;;-moz-box-shadow:2px 2px 5px #333333;-webkit-box-shadow:2px 2px 5px #333333;-o-box-shadow:2px 2px 5px #333333;}
+#large .sidebar .repi-txt .repi-content{width:100%;}
+#large .sidebar .repi-txt .repi-content .repi{width:100%;height:39px;float:left;margin-top:10px;padding:5px 0;}
+#large .sidebar .repi-txt .repi-content .repi .userface{width:39px;height:39px;float:left;}
+#large .sidebar .repi-txt .repi-content .repi .userface img{border-radius:100%;-moz-border-radius:100%;-webkit-border-radius:100%;-o-border-radius:100%;}
+#large .sidebar .repi-txt .repi-content .repi .usercomment{width:292px;height:32px;float:right;margin-top:7px;}
+#large .sidebar .repi-txt .repi-content .repi .usercomment em{width:6px;height:6px;overflow:hidden;background:url(http://mat1.gtimg.com/joke/golden/kb/repiTxtIcon.png) no-repeat;float:left;}
+#large .sidebar .repi-txt .repi-content .repi .usercomment p{clear:both;float:left;padding:0 6px;overflow:hidden;height:23px;line-height:23px;font-size:14px;color:#000;background:#fdd169;border-radius:0 6px 6px;-moz-border-radius:0 6px 6px;-webkit-border-radius:0 6px 6px;-o-border-radius:0 6px 6px;}
+
+.erweima-top{display:none;width:81px;height:66px;background:url(http://mat1.gtimg.com/kb/images/erweimatopbg.png) no-repeat;position:absolute;top:0;right:401px;z-index:9;}
+.erweima-top-layout{width:323px;height:164px;background:url(http://mat1.gtimg.com/kb/images/erweimatopbg3.png) no-repeat;position:absolute;top:52px;right:0;display:none;}
+.erweima-top:hover .erweima-top-layout{display:block;}
+.erweima-top-layout .ios{width:149px;height:38px;display:block;background:url(http://mat1.gtimg.com/kb/images/ios.png) no-repeat left top;position:absolute;top:62px;right:17px;}
+.erweima-top-layout .ios:hover{background-position:left -50px;}
+.erweima-top-layout .ios:active{background-position:left -100px;}
+.erweima-top-layout .android{width:149px;height:38px;display:block;background:url(http://mat1.gtimg.com/kb/images/android.png) no-repeat left top;position:absolute;top:111px;right:17px;}
+.erweima-top-layout .android:hover{background-position:left -50px;}
+.erweima-top-layout .android:active{background-position:left -100px;}
+#middle .erweima-top{display:none;}
+#small .erweima-top{display:none;}
+#middle .ad01,#middle .ad02,#small .ad01,#small .ad02{display:none;}
+
+.phonefloat{width:100%;position:fixed;left:0;bottom:0;display:none;z-index:9999;}
+.phonefloat img{width:100%;}
+.phonefloat .phonedown{width:100%;height:100%;display:block;position:absolute;left:0;top:0;z-index:2;}
+.phonefloat .shutdown{width:6%;height:50%;display:block;cursor:pointer;position:absolute;right:0;top:0;z-index:3;}
+
+.sogouHot{width:100%;height:125px;}
+.sogouHot h3{width:100%;height:20px;font-size:14px;font-weight:bold;float:left;}
+.sogouHot ul{width:100%;padding:10px 0 35px;float:left;}
+.sogouHot li{width:33%;float:left;font-size:14px;line-height:30px;}
+#small .sogouHot li{width:50%;}
+
+#shortcut{position:fixed;bottom:150px;} 
+#toTop{width:52px;height:52px;display:none;position:absolute;right:-108px;bottom:64px;background:url(http://mat1.gtimg.com/kb/images/iconFloat.png) no-repeat left top;}
+#toTop:hover{background-position:right top;}
+#homeBack{width:52px;height:52px;display:block;position:absolute;right:-108px;bottom:0px;background:url(http://mat1.gtimg.com/kb/images/iconFloat.png) no-repeat left bottom;}
+#homeBack:hover{background-position:right bottom;}
+#small #homeBack{display:none;}
+
+.nav {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 16px 0;
+}
+</style>
+</head>
+<body id="large">
+<!--登录框 开始-->
+<div class="top" id="top"><!-- 快报logo --><a href="http://kb.qq.com/" target="_blank" id="imglogo" class="logo"></a><!-- 头像及登录 --><div class="login-layout" id="login-layout" style="display:block;"><div class="logined" id="FaceLogined" style="display:none;"><img src="http://q3.qlogo.cn/g?b=qq&amp;k=iapdRtRB5xGp4Qf4EHhuQpQ&amp;s=100&amp;t=1370365179" id="Face"><p class="loginout" id="loginoutbtn" style="display:none;"><a href="javascript:void(0)">退出</a></p></div><div class="login" id="FaceLogin" style="display:block;"><a href="javascript:void(0)" class="logintopbtn"></a></div></div><!-- 天气 -->
+			<div class="weather-layout" id="weather-layout">
+				<div id="weather-icon"><img src="<?php echo $web_site.'/images/weather/'.$weather_data[0][3]; ?>"></div>
+				<p id="weather-city"><?php echo $weather_data[0][0]; ?></p>
+				<p class="weather-temperature"><span id="weather-temperature"><?php echo $weather_data[0][1]; ?></span>℃</p>
+			</div>
+<!-- 下载二维码 --><div class="erweima-top"><div class="erweima-top-layout"><a href="https://itunes.apple.com/cn/app/kuai-bao/id996866372" class="ios" target="_blank" bosszone="iosdownload"></a><a href="http://view.inews.qq.com/newsDownLoad?refer=biznew&amp;src=kb_gov&amp;ostype=android" class="android" target="_blank" bosszone="androiddownload"></a></div></div><!-- 分类 大版导航--><div class="navLayout"><ul class="topul" bosszone="nav"><li id="index" class=" current"><a href="http://kb.qq.com/" bosszone="index">推荐</a></li><li id="cityBtn" class="local"><a id="cityName" href="http://kb.qq.com/local.htm" bosszone="local" style="display: block;">武汉</a></li><li id="tech"><a href="http://kb.qq.com/tech.htm" bosszone="tech">互联网</a></li><li id="sports"><a href="http://kb.qq.com/sports.htm" bosszone="sports">体育</a></li><div id="wrapul"><li id="bagua"><a href="http://kb.qq.com/bagua.htm" bosszone="bagua">娱乐</a></li><li id="gif"><a href="http://kb.qq.com/gif.htm" bosszone="gif">GIF</a></li><li id="mil"><a href="http://kb.qq.com/mil.htm" bosszone="mil">军事</a></li><li id="qipa"><a href="http://kb.qq.com/qipa.htm" bosszone="qipa">社会</a></li><li id="image"><a href="http://kb.qq.com/image.htm" bosszone="image">图片</a></li><li id="chaobao"><a href="http://kb.qq.com/chaobao.htm" bosszone="chaobao">时尚</a></li><li id="finance"><a href="http://kb.qq.com/finance.htm" bosszone="finance">财经</a></li><li id="NBA"><a href="http://kb.qq.com/image.htm" bosszone="NBA">NBA</a></li><li id="history"><a href="http://kb.qq.com/history.htm" bosszone="history">历史</a></li></div></ul></div><!-- 小版导航 --><div class="small_nav"><ul class="topul" bosszone="nav" id="small_topul"><li id="index_s" class=" current"><a href="http://kb.qq.com/" bosszone="index">推荐</a></li><li id="cityBtn_s" class="local"><a href="http://kb.qq.com/local.htm" id="cityName" bosszone="local">北京</a></li><li id="tech_s"><a href="http://kb.qq.com/tech.htm" bosszone="tech">互联网</a></li><li id="sports_s"><a href="http://kb.qq.com/sports.htm" bosszone="sports">体育</a></li><li id="bagua_s"><a href="http://kb.qq.com/bagua.htm" bosszone="bagua">娱乐</a></li><li id="gif_s"><a href="http://kb.qq.com/gif.htm" bosszone="gif">GIF</a></li><li id="mil_s"><a href="http://kb.qq.com/mil.htm" bosszone="mil">军事</a></li><li id="qipa_s"><a href="http://kb.qq.com/qipa.htm" bosszone="qipa">社会</a></li><li id="image_s"><a href="http://kb.qq.com/image.htm" bosszone="image">图片</a></li><li class="more_nav" id="more_nav"><a href="javascript:void(0);" id="morenavtext">更多</a></li><li id="chaobao_s"><a href="http://kb.qq.com/chaobao.htm" bosszone="chaobao">时尚</a></li><li id="finance_s"><a href="http://kb.qq.com/finance.htm" bosszone="finance">财经</a></li><li id="NBA_s"><a href="http://kb.qq.com/NBA.htm" bosszone="NBA">NBA</a></li><li id="history_s"><a href="http://kb.qq.com/history.htm" bosszone="history">历史</a></li></ul></div></div>
+
+<div class="content" id="content">	
+	<div class="contentLeft" id="contentLeft">
+
+	   <div class="nav" id="" style="">
+                    <a href="javascript:void(0)">首页</a> > <a href="">分类</a> > 正文
+                </div>	
+		<div class="article-inner">
+			<h2 id="arttitle"><?php echo $article['title']; ?></h2>
+			<div class="source_comment" id="source_comment">18次阅读</div>
+			<div class="tips tipstop">
+
+				<div class="shareIcon">
+					<div class="shareing" bosszone="share">
+						<p>分享到：</p>
+<div class="share_list posa" id="share_list"><a href="javascript:;" name="txwb" title="腾讯微博" class="wb_list"><span>腾讯微博</span></a><a href="javascript:;" name="qzone" title="QQ空间" class="qzone_list"><span>QQ空间</span></a><a href="javascript:;" name="qq" title="QQ好友" class="qq_list"><span>QQ好友</span></a><a href="javascript:;" name="sinawb" title="新浪微博" class="xl_list"><span>新浪微博</span></a><b class="phone" name="wx"><i style="display: none;" name="qrcode"><canvas width="120" height="120"></canvas></i></b></div>
+					</div>
+				</div>
+
+
+				<em class="likeIcon"></em>
+			</div>
+			<div class="article-content clear" id="artcontent"><?php 
+			$article['content'] = str_replace('_IMG_URL_', 'http://www.wmz.com/pic/thumb/', $article['content']);
+			echo $article['content'];
+			?></div>
+		</div>
+		<div class="sogouHot">
+			<h3>热门搜索：</h3>
+<ul>
+<li bosszone="sogouHot"><a target="_blank" href="https://www.sogou.com/sogou?pid=sogou-wsse-fd8c07a31f8a8591-2003&amp;query=%E5%B9%BF%E8%A5%BF%E5%B0%8F%E5%AD%A6%E8%AE%BE%E5%B7%AE%E7%94%9F%E7%8F%AD">广西小学设差生班</a></li>
+<li bosszone="sogouHot"><a target="_blank" href="https://www.sogou.com/sogou?pid=sogou-wsse-fd8c07a31f8a8591-2003&amp;query=%E7%BE%8E%E6%B5%B7%E5%86%9B%E5%8C%BB%E9%99%A2%E7%96%91%E7%8E%B0%E7%82%B8%E5%BC%B9">美海军医院疑现炸弹</a></li>
+<li bosszone="sogouHot"><a target="_blank" href="https://www.sogou.com/sogou?pid=sogou-wsse-fd8c07a31f8a8591-2003&amp;query=%E4%B8%AD%E5%9B%BD%E6%B6%A8%E8%96%AA%E6%BD%AE%E6%B6%88%E9%80%80">中国涨薪潮消退</a></li>
+<li bosszone="sogouHot"><a target="_blank" href="https://www.sogou.com/sogou?pid=sogou-wsse-fd8c07a31f8a8591-2003&amp;query=%E8%B1%ABAAAAAA%E8%BD%A6%E7%89%8C">豫AAAAAA车牌</a></li>
+<li bosszone="sogouHot"><a target="_blank" href="https://www.sogou.com/sogou?pid=sogou-wsse-fd8c07a31f8a8591-2003&amp;query=%E6%9C%80%E5%BC%BA%E5%A4%A7%E8%84%91%E9%80%89%E6%89%8B%E7%A0%B4%E6%A1%88">最强大脑选手破案</a></li>
+<li bosszone="sogouHot"><a target="_blank" href="https://www.sogou.com/sogou?pid=sogou-wsse-fd8c07a31f8a8591-2003&amp;query=%E5%91%A8%E8%91%A3%E5%A5%B3%E5%84%BF%E6%AD%A3%E9%9D%A2%E6%9B%9D%E5%85%89">周董女儿正面曝光</a></li>
+</ul>
+<!--[if !IE]>|xGv00|ff7952b3b88364b5408c3ab22dabb20f<![endif]-->
+		</div>
+	</div>
+</div><div id="sidebar" class="sidebar clear" style="top: 66px; position: absolute;"><div class="asd02" bosszone="adrighttop"><a target="_blank" href="http://kuaibao.qq.com/download.html"><img src="http://mat1.gtimg.com/kb/images/appdr.png"></a></div><div class="hd"><h3>热门批注</h3></div><div class="bd clear" id="sidecont"><div class="repi-img" bosszone="sidebar"><div class="repi-title"><h4><a href="http://kb.qq.com/article.htm?id=20151203A01LRT00&amp;commentid=1260874400" target="_blank">这些不一般的奇怪癖好，你是不是也有过？</a></h4></div>
+            
+</div><div class="repi-img" bosszone="sidebar" style="float:right;"><div class="repi-title"><h4><a href="http://kb.qq.com/article.htm?id=20151203A031SF00&amp;commentid=1261100568" target="_blank">真会玩！外国女生竟把亮闪闪的腋毛当成新时尚？</a></h4></div>
+    
+</div><div class="repi-img" bosszone="sidebar"><div class="repi-title"><h4><a href="http://kb.qq.com/article.htm?id=20151203A01R1R00&amp;commentid=1260902772" target="_blank">看外国小伙是怎么求婚的？相比之下你是不是弱爆了？</a></h4></div>
+    
+</div><div class="repi-img" bosszone="sidebar" style="float:right;"><div class="repi-title"><h4><a href="http://kb.qq.com/article.htm?id=20151203A03GAB00&amp;commentid=1261232168" target="_blank">这些画是他用10个符号当画笔打印出来的，你信吗？</a></h4></div>
+</div><div class="repi-img" bosszone="sidebar"><div class="repi-title"><h4><a href="http://kb.qq.com/article.htm?id=20151203A03IE800&amp;commentid=1261259429" target="_blank">才貌双全的真人芭比为什么会被人当成碧池？</a></h4></div>
+</div></div><div class="asd01" bosszone="adrightbottom"><a target="_blank" href="http://news.qq.com/zt2015/AK47/index.htm"><img src="http://mat1.gtimg.com/kb/images/asd01.jpg"></a></div><div class="ft" bosszone="appDownload"><a href="http://kuaibao.qq.com/download.html" target="_blank"></a><div class="ftios"></div></div><a href="http://support.qq.com/write.shtml?fid=1174&amp;ADPUBNO=" class="fankui" bosszone="fankui" target="_blank"></a></div>
+
+<div id="relate-news" class="clear" bosszone="relate" style="display: none;"></div>
+<!--ol20130819--><!--pgv 20140225v1.0.3 by Austinjin-->
+<!--[if !IE]>|xGv00|f3e03201190b3625764e435221a2d6a1<![endif]--><!--[if !IE]>|xGv00|1a3a193a0249b0401b1fc3f77d548441<![endif]-->
+<style>
+.tcopyright {width:960px;margin:0 auto;padding:8px 0;font-size:12px;line-height:28px;color:#333; text-align:center; overflow:hidden;clear:both;}
+.tcopyright .en{font-family:Arial;}
+.tcopyright a{color:#333;text-decoration: none;}
+.tcopyright a:hover{color:#bd0a01;text-decoration: underline;}
+</style>
+<div id="tcopyright" class="tcopyright" bosszone="footer" role="contentinfo">
+	<div>
+		<a href="http://www.tencent.com/" target="_blank" rel="nofollow">关于腾讯</a> | <a href="http://www.tencent.com/index_e.shtml" target="_blank" rel="nofollow">About Tencent</a> | <a href="http://www.qq.com/contract.shtml" target="_blank" rel="nofollow">服务协议</a> | <a href="http://www.qq.com/privacy.htm" target="_blank" rel="nofollow">隐私政策</a> | <a href="http://open.qq.com/" target="_blank" rel="nofollow">开放平台</a> | <a href="http://www.tencentmind.com/" target="_blank" rel="nofollow">广告服务</a> | <a href="http://hr.tencent.com/" target="_blank" rel="nofollow">腾讯招聘</a> | <a href="http://gongyi.qq.com/" target="_blank" rel="nofollow">腾讯公益</a> | <a href="http://service.qq.com/" target="_blank" rel="nofollow">客服中心</a> | <a href="http://www.qq.com/map/" target="_blank" rel="nofollow">网站导航</a>
+	</div>
+  	<div class="en">Copyright © 1998 - 2016 Tencent. All Rights Reserved</div>
+    <div>
+		<a href="http://www.tencent.com/" target="_blank" rel="nofollow">腾讯公司</a> <a href="http://www.tencent.com/zh-cn/le/copyrightstatement.shtml" target="_blank" rel="nofollow">版权所有</a>
+	</div>
+</div><!--[if !IE]>|xGv00|ebd6fb0d7fdd1cfabfeda4cf113fa32e<![endif]-->
+
+<div class="phonefloat">
+	<img src="http://mat1.gtimg.com/kb/images/phonedown.png">
+	<a href="http://view.inews.qq.com/newsDownLoad?refer=biznew&amp;src=kb_touch2&amp;by=dict" target="_blank" class="phonedown" bosszone="phonedownload2"></a>
+	<span class="shutdown"></span>
+</div>
+<div id="shortcut" style="left: 811.5px;">
+	<a href="javascript:void(0)" target="_self" id="toTop" title="返回顶部" bosszone="backtop" style="display: ;"></a>
+</div>
+	
+
+
+<!--boss脚本 结束--><!--[if !IE]>|xGv00|1703a820928d96b563b1dcad79ab06bb<![endif]-->
+<script type="text/javascript" src="<?php echo $web_site.'/js/jquery-1.11.1.min.js'; ?>"></script>
+<script type="text/javascript">
+var weather_data = <?php echo trim($weather_json, "\n"); ?>;
+var weather_index = 0, weather_length = weather_data.length, weather_icon = $('#weather-icon'), weather_city = $('#weather-city'), weather_temperature = $('#weather-temperature');
+var weather = function() {
+    weather_index++;
+    if(weather_index > weather_length - 1) {
+        weather_index = 0;
+    }
+    weather_icon.html('<img src="<?php echo $web_site ?>/images/weather/' + weather_data[weather_index][3] + '" />');
+    weather_city.html(weather_data[weather_index][0]);
+    weather_temperature.html(weather_data[weather_index][1]);
+}
+var weather_itr = setInterval(weather, 5000);
+
+var more_top = $('#moreTop'), more_top_itr = null; 
+more_top_itr = setTimeout(function(){
+    more_top_itr = null;
+    more_top.show();
+}, 18000);
+</script>
+</body></html>

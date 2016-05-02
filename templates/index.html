@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type">
+<title>微妙招</title>
+<meta content="" name="Keywords">
+<meta name="description" content="">
+<style type="text/css">
+body,ol,ul,h1,h2,h3,h4,h5,h6,p,th,td,dl,dd,form,fieldset,legend,input,textarea,select{margin:0;padding:0}
+body{font:12px "微软雅黑","宋体","Arial Narrow",HELVETICA;background:#fff;color:#020202;-webkit-text-size-adjust:100%}
+a{color:#172c45;text-decoration:none}
+a:hover{color:#cd0200;text-decoration:underline}
+em{font-style:normal}
+li{list-style:none}
+img{border:0;vertical-align:middle}
+table{border-collapse:collapse;border-spacing:0}
+p{word-wrap:break-word}
+.undis{display:none;}
+.clear:after{content:"";display:table;clear:both}
+.top{width:100%;height:66px;background:#efefef;position:fixed;top:0;left:0;z-index:99;}
+.top .logo{float:left;width:119px;height:66px;display:block;background:url(http://www.wmz.com/images/logo.jpg) no-repeat;background-image:-webkit-image-set(url(http://www.wmz.com/images/logo.jpg) 1x,url(http://mat1.gtimg.com/kb/images/kblogo2x.jpg) 2x);}
+.top ul.topul{width:1000px;padding-top:14px;position:absolute;top:0;left:49%;margin-left:-500px;}
+.top ul.topul li{float:left;width:70px;text-align:center;color:#3d3d3d;font-size:16px;padding:13px 0;cursor:pointer;}
+.top ul.topul li.current{color:#e13b19;border-bottom:5px solid #e13b19;display:block;}
+.top ul.topul li.local{display:block;}
+.top ul.topul li.liMore{height:66px;line-height:75px;padding:0;margin-top:-14px;cursor:default;background:url(http://mat1.gtimg.com/kb/images/navmore.png) no-repeat 52px 35px;}
+.top ul.topul li.liMore:hover{width:68px;border-left:1px solid #d9dadb;border-right:1px solid #d9dadb;background:#f7f7f7 url(http://mat1.gtimg.com/kb/images/navmore2.png) no-repeat 51px 35px;;position:relative;}
+.top ul.topul li.liMore .navMore{display:none;position:absolute;top:66px;left:-1px;width:136px;border:1px solid #d9dadb;border-top:0;background-color:#f7f7f7;}
+.top ul.topul li.liMore:hover .navMore{display:block;}
+.top ul.topul li .navMore ul{width:100%;}
+.top ul.topul li .navMore li{width:50%;height:46px;line-height:46px;padding:0;}
+.top ul.topul li .navMore li a{width:100%;height:46px;line-height:46px;display:block;}
+.top ul.topul li .navMore li a:hover{background:#ececec;color:#e13b19;text-decoration:none;}
+
+.top ul.topul li.hideListCont{width:560px;padding:0 0 13px 0;}
+.top .login-layout{float:right;display:inline;margin:0 31px 0 0;}
+.top .login-layout .login{display:none;width:66px;height:38px;margin-top:12px;background:url(http://www.wmz.com/images/logintopbtn.png) no-repeat;}
+.top .login-layout .login a{display:block;width:66px;height:38px;}
+.top .login-layout .logined{display:none;position:relative;width:39px;height:39px;padding:13px 10px;}
+.top .login-layout .logined:hover{background:#ddd;}
+.top .login-layout .logined img{width:39px;height:39px;border-radius:100%;-moz-border-radius:100%;-webkit-border-radius:100%;-o-border-radius:100%;}
+.top .login-layout .logined .loginout{width:59px;height:29px;line-height:28px;border-top:1px solid #ededed;background:#ddd;text-align:center;font-size:16px;color:#909090;position:absolute;right:0;bottom:-29px;z-index:9;}
+.top .login-layout .logined .loginout a{color:#000;width:59px;height:29px;display:block;}
+.top .login-layout .logined .loginout a:hover{color:#fff;background:#d13b1d;text-decoration:none;}
+.top .weather-layout{float:right;display:inline;margin:14px 21px 0 0;font-size:16px;color:#000;}
+.top .weather-layout .weather-icon img{height:39px;}
+#tcopyright{width:620px;}
+#weather-icon{float:left;}
+#weather-icon img{height:39px;}
+#weather-city{float:left;display:inline;margin:6px 16px 0 14px;}
+.weather-temperature{float:left;margin-top:6px;}
+.title-icon{float:left;margin:3px 9px 22px 1px;}
+.title-icon img{height:20px;margin-top:3px;}
+.contentList{min-height:600px;}
+#large .content{width:1200px;margin:0 auto;border-top:66px solid #efefef;}
+#large .content:after{content:"";display:table;clear:both}
+#large .contentLeft{width:700px;float:left;position:relative;}
+#large .contentLeft .refresh{display:block;width:37px;height:37px;background:url(http://mat1.gtimg.com/kb/images/refreshGray2.png) no-repeat;position:fixed;bottom:178px;left:50%;margin-left:160px;cursor:pointer;transition:All 1s ease-in-out;-webkit-transition:All 1s ease-in-out;-moz-transition:All 1s ease-in-out;-o-transition:All 1s ease-in-out;}
+#large .contentLeft .refresh:hover{background:url(http://mat1.gtimg.com/kb/images/refresh.png) no-repeat;transform:rotate(360deg);-webkit-transform:rotate(360deg);-moz-transform:rotate(360deg);-o-transform:rotate(360deg);-ms-transform:rotate(360deg);}
+#large .contentDefault{width:1000px;margin:0 auto;border-top:66px solid #efefef;}
+#large .contentDefaultLeft{width:582px;float:left;height:1730px;background:url(http://mat1.gtimg.com/joke/golden/kb/indexleft.jpg) no-repeat bottom center;}
+#large .contentDefaultRight{width:400px;height:1240px;background:url(http://mat1.gtimg.com/joke/golden/kb/indexright.jpg) no-repeat;position:absolute;top:66px;right:0;}
+#large .contentDefaultLogin{position:absolute;top:80px;left:50%;z-index:100;margin-left:-500px;}
+#large .contentDefaultLogin h2{font-size:30px;color:#000;}
+#large .contentDefaultLogin p{font-size:14px;color:#000;padding:14px 0 18px;}
+#large .box-imgsmall .title-icon{margin-bottom:48px;}
+#large .box-imgsmall h2{height:64px;overflow:hidden;}
+#large .sidebar{width:339px;position:absolute;right:0;background:#fafafa;padding:33px 31px;}
+#large .sidebar .hd{width:100%;float:left;border-top:1px solid #e0e0e0;margin-top:32px;}
+#large .sidebar .hd h3{padding:6px 0 0 0;font-size:16px;font-weight:normal;color:#020202;border-top:1px solid #272727;float:left;margin-top:-1px;}
+#large .sidebar .bd{width:100%;float:left;}
+#large .sidebar .ft{width:100%;height:100px;float:left;margin-top:40px;background:url(http://mat1.gtimg.com/kb/images/download.png) no-repeat;position:relative;}
+#large .sidebar .ft a{width:100%;height:100px;display:block;}
+#large .sidebar .ft .ftios{display:none;width:124px;height:124px;background:#f1f1f1 url(http://mat1.gtimg.com/kb/images/ewcode.png) no-repeat center center;padding:22px;position:absolute;top:-160px;left:0px;border-radius:8px 8px 0 0;-moz-border-radius:8px 8px 0 0;-webkit-border-radius:8px 8px 0 0;-o-border-radius:8px 8px 0 0;}
+#large .sidebar .ft:hover .ftios{display:block;}
+#large .sidebar .fankui{width:98px;height:23px;display:block;float:left;margin-top:28px;background:url(http://mat1.gtimg.com/kb/images/fankui.png) no-repeat left top;}
+#large .sidebar .fankui:hover{background:url(http://mat1.gtimg.com/kb/images/fankui.png) no-repeat left bottom;}
+#large .sidebar .asd01{width:100%;float:left;margin-top:40px;}
+#large .sidebar .asd02{width:100%;float:left;}
+#large .sidebar .repi-title{float:left;width:100%;font-size:16px;line-height:20px;font-weight:normal;margin-top:20px;}
+#large .sidebar .repi-title h4{font-size:20px;font-weight:normal;color:#020202;line-height:28px;}
+#large .sidebar .repi-img{float:left;}
+#large .sidebar .repi-img .repi-content{width:339px;height:163px;float:left;margin-top:15px;position:relative;}
+#large .sidebar .repi-img .repi-content img{width:339px;height:163px;}
+#large .sidebar .repi-img .repi-content .repi{position:absolute;margin:-2px 0 0 -2px;height:23px;line-height:23px;font-size:14px;color:#000;}
+#large .sidebar .repi-img .repi-content .repi em{width:13px;height:14px;overflow:hidden;background:url(http://mat1.gtimg.com/joke/golden/kb/repiImgIcon.png) no-repeat;_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src='http://mat1.gtimg.com/joke/golden/kb/repiImgIcon.png');float:left;}
+#large .sidebar .repi-img .repi-content .repi p{clear:both;float:left;display:inline;margin-left:7px;padding:0 6px;overflow:hidden;height:23px;line-height:23px;font-size:14px;color:#000;background:#fdc608;border-radius:0 6px 6px;-moz-border-radius:0 6px 6px;-webkit-border-radius:0 6px 6px;-o-border-radius:0 6px 6px;box-shadow:2px 2px 5px #333333;;-moz-box-shadow:2px 2px 5px #333333;-webkit-box-shadow:2px 2px 5px #333333;-o-box-shadow:2px 2px 5px #333333;}
+#large .sidebar .repi-txt .repi-content{width:100%;}
+#large .sidebar .repi-txt .repi-content .repi{width:100%;height:39px;float:left;margin-top:10px;padding:5px 0;}
+#large .sidebar .repi-txt .repi-content .repi .userface{width:39px;height:39px;float:left;}
+#large .sidebar .repi-txt .repi-content .repi .userface img{border-radius:100%;-moz-border-radius:100%;-webkit-border-radius:100%;-o-border-radius:100%;}
+#large .sidebar .repi-txt .repi-content .repi .usercomment{width:292px;height:32px;float:right;margin-top:7px;}
+#large .sidebar .repi-txt .repi-content .repi .usercomment em{width:6px;height:6px;overflow:hidden;background:url(http://mat1.gtimg.com/joke/golden/kb/repiTxtIcon.png) no-repeat;float:left;}
+#large .sidebar .repi-txt .repi-content .repi .usercomment p{clear:both;float:left;padding:0 6px;overflow:hidden;height:23px;line-height:23px;font-size:14px;color:#000;background:#fdd169;border-radius:0 6px 6px;-moz-border-radius:0 6px 6px;-webkit-border-radius:0 6px 6px;-o-border-radius:0 6px 6px;}
+
+#small .duanzi,#small .chaobao,#small .xiuxian,#small .youxi{display:none;}
+#middle .top ul.topul{width:650px;margin-left:-291px;}
+#middle .content{width:700px;margin:0 auto;border-top:66px solid #efefef;}
+#middle .content:after{content:"";display:table;clear:both}
+#middle .contentLeft{width:700px;margin:0 auto;position:relative;}
+#middle .box-imgsmall h2{height:64px;overflow:hidden;}
+#middle .contentLeft .refresh{display:none;}
+#middle .contentDefault{width:1000px;margin:0 auto;border-top:66px solid #efefef;}
+#middle .contentDefaultLeft{width:582px;margin:0 auto;height:1730px;background:url(http://mat1.gtimg.com/joke/golden/kb/indexleft.jpg) no-repeat bottom center;}
+#middle .contentDefaultRight{display:none;}
+#middle .contentDefaultLogin{position:absolute;top:80px;left:50%;z-index:100;margin-left:-291px;}
+#middle .contentDefaultLogin h2{font-size:30px;color:#000;}
+#middle .contentDefaultLogin p{font-size:14px;color:#000;padding:14px 0 18px;}
+#middle .sidebar{width:700px;background:#fafafa;padding:17px 0px;border-bottom:1px solid #e0e0e0;}
+#middle .sidebar .hd{width:100%;height:28px;float:left;border-top:1px solid #e0e0e0;}
+#middle .sidebar .hd h3{padding:6px 0 0 0;font-size:16px;font-weight:normal;color:#020202;border-top:1px solid #272727;float:left;margin-top:-1px;}
+#middle .sidebar .bd{width:100%;height:510px;float:left;overflow:hidden;}
+#middle .sidebar .ft{display:none;width:100%;height:100px;float:left;margin-top:80px;background:url(http://mat1.gtimg.com/kb/images/download.png) no-repeat;position:relative;}
+#middle .sidebar .ft a{width:100%;height:100px;display:block;}
+#middle .sidebar .ft .ftios{display:none;width:124px;height:124px;background:#f1f1f1 url(http://mat1.gtimg.com/kb/images/ewcode.png) no-repeat center center;padding:22px;position:absolute;top:-160px;left:0px;border-radius:8px 8px 0 0;-moz-border-radius:8px 8px 0 0;-webkit-border-radius:8px 8px 0 0;-o-border-radius:8px 8px 0 0;}
+#middle .sidebar .ft:hover .ftios{display:block;}
+#middle .sidebar .repi-title{float:left;width:100%;height:56px;margin-top:20px;}
+#middle .sidebar .repi-title h4{font-size:20px;font-weight:normal;color:#020202;line-height:28px;}
+#middle .sidebar .repi-img{width:342px;height:255px;float:left;overflow:hidden;}
+#middle .sidebar .repi-img .repi-content{width:342px;height:164px;float:left;margin-top:15px;position:relative;}
+#middle .sidebar .repi-img .repi-content img{width:342px;height:164px;}
+#middle .sidebar .repi-img .repi-content .repi{position:absolute;margin:-2px 0 0 -2px;height:23px;line-height:23px;font-size:14px;color:#000;}
+#middle .sidebar .repi-img .repi-content .repi em{width:13px;height:14px;overflow:hidden;background:url(http://mat1.gtimg.com/joke/golden/kb/repiImgIcon.png) no-repeat;_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src='http://mat1.gtimg.com/joke/golden/kb/repiImgIcon.png');float:left;}
+#middle .sidebar .repi-img .repi-content .repi p{clear:both;float:left;display:inline;margin-left:7px;padding:0 6px;overflow:hidden;height:23px;line-height:23px;font-size:14px;color:#000;background:#fdc608;border-radius:0 6px 6px;-moz-border-radius:0 6px 6px;-webkit-border-radius:0 6px 6px;-o-border-radius:0 6px 6px;}
+#middle .sidebar .repi-txt .repi-content{width:100%;}
+#middle .sidebar .repi-txt .repi-content .repi{width:100%;height:39px;float:left;margin-top:10px;padding:5px 0;}
+#middle .sidebar .repi-txt .repi-content .repi .userface{width:39px;height:39px;float:left;}
+#middle .sidebar .repi-txt .repi-content .repi .userface img{border-radius:100%;-moz-border-radius:100%;-webkit-border-radius:100%;-o-border-radius:100%;}
+#middle .sidebar .repi-txt .repi-content .repi .usercomment{width:292px;height:32px;float:right;margin-top:7px;}
+#middle .sidebar .repi-txt .repi-content .repi .usercomment em{width:6px;height:6px;overflow:hidden;background:url(http://mat1.gtimg.com/joke/golden/kb/repiTxtIcon.png) no-repeat;float:left;}
+#middle .sidebar .repi-txt .repi-content .repi .usercomment p{clear:both;float:left;padding:0 6px;overflow:hidden;height:23px;line-height:23px;font-size:14px;color:#000;background:#fdd169;border-radius:0 6px 6px;-moz-border-radius:0 6px 6px;-webkit-border-radius:0 6px 6px;-o-border-radius:0 6px 6px;}
+#middle .asd01,#middle .asd02,#small .asd01,#small .asd02{display:none;}
+
+#small .meitu,#small .duanzi,#small .chaobao,#small .xiuxian,#small .youxi{display:none;}
+#small .top .login-layout{position:relative;z-index:999;}
+#small .small_nav{display:block;width:100%;background:#fff;position:absolute;top:66px;left:0;}
+#small .navLayout{display:none;}
+.small_nav{display:none;}
+#small .top ul.topul{width:370px;padding-top:2px;position:absolute;top:0px;left:50%;margin-left:-185px;border-bottom:1px solid #e0e0e0;background:#fff;height:93px;overflow:hidden;}
+#small .top ul.open{height:138px;}
+#small .top li{float:left;width:59px;text-align:center;color:#3d3d3d;font-size:16px;padding:12px 0;cursor:pointer;margin-right:15px;}
+#small .top li a{color:#a1a1a1;}
+#small .top li.current{color:#e13b19;padding:12px 0 10px;border-bottom:2px solid #e13b19;display:block;}
+#small .top li.current a{color:#e13b19;}
+#small .top li.more_nav{background:url(http://mat1.gtimg.com/kb/images/navmore.png) no-repeat 47px 22px;}
+#small .top li.more_nav:hover{background:url(http://mat1.gtimg.com/kb/images/navmore2.png) no-repeat 47px 22px;}
+#small .top ul.topul li.hideListCont{padding:0; }
+#small .content{width:367px;margin:0 auto;border-top:160px solid #fff;}
+#small .contentopen{border-top:205px solid #fff;}
+#small .content:after{content:"";display:table;clear:both}
+#small .contentLeft{width:367px;margin:0 auto;position:relative;}
+#small .contentLeft .refresh{display:none;}
+#small .contentDefault{width:367px;margin:0 auto;border-top:66px solid #efefef;}
+#small .contentDefaultLeft{width:367px;float:left;height:2117px;background:url(http://mat1.gtimg.com/joke/golden/kb/indexsmall.jpg) no-repeat bottom center;}
+#small .contentDefaultRight{display:none;}
+#small .contentDefaultLogin{position:absolute;top:80px;left:50%;z-index:100;margin-left:-203px;}
+#small .contentDefaultLogin h2{font-size:30px;color:#000;}
+#small .contentDefaultLogin p{font-size:14px;color:#000;padding:14px 0 18px;}
+#small .title-icon{float:left;margin:3px 9px 6px 1px;}
+#small .sidebar{width:367px;background:#fafafa;padding:17px 0px;border-bottom:1px solid #e0e0e0;}
+#small .sidebar .hd{width:100%;height:28px;float:left;border-top:1px solid #e0e0e0;}
+#small .sidebar .hd h3{padding:6px 0 0 0;font-size:16px;font-weight:normal;color:#020202;border-top:1px solid #272727;float:left;margin-top:-1px;}
+#small .sidebar .bd{width:100%;float:left;overflow:hidden;}
+#small .sidebar .ft{display:none;width:100%;height:100px;float:left;margin-top:80px;background:url(http://mat1.gtimg.com/kb/images/download.png) no-repeat;position:relative;}
+#small .sidebar .ft a{width:100%;height:100px;display:block;}
+#small .sidebar .ft .ftios{display:none;width:124px;height:124px;background:#f1f1f1 url(http://mat1.gtimg.com/kb/images/ewcode.png) no-repeat center center;padding:22px;position:absolute;top:-160px;left:0px;border-radius:8px 8px 0 0;-moz-border-radius:8px 8px 0 0;-webkit-border-radius:8px 8px 0 0;-o-border-radius:8px 8px 0 0;}
+#small .sidebar .ft:hover .ftios{display:block;}
+#small .sidebar .repi-title{float:left;width:100%;margin-top:20px;}
+#small .sidebar .repi-title h4{font-size:20px;font-weight:normal;color:#020202;line-height:28px;}
+#small .sidebar .repi-img{width:367px;float:left;overflow:hidden;}
+#small .sidebar .repi-img .repi-content{width:367px;height:176px;float:left;margin-top:15px;position:relative;}
+#small .sidebar .repi-img .repi-content img{width:367px;height:176px;}
+#small .sidebar .repi-img .repi-content .repi{position:absolute;margin:-2px 0 0 -2px;height:23px;line-height:23px;font-size:14px;color:#000;}
+#small .sidebar .repi-img .repi-content .repi em{width:13px;height:14px;overflow:hidden;background:url(http://mat1.gtimg.com/joke/golden/kb/repiImgIcon.png) no-repeat;_background:none;_filter:progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=scale,src='http://mat1.gtimg.com/joke/golden/kb/repiImgIcon.png');float:left;}
+#small .sidebar .repi-img .repi-content .repi p{clear:both;float:left;display:inline;margin-left:7px;padding:0 6px;overflow:hidden;height:23px;line-height:23px;font-size:14px;color:#000;background:#fdc608;border-radius:0 6px 6px;-moz-border-radius:0 6px 6px;-webkit-border-radius:0 6px 6px;-o-border-radius:0 6px 6px;}
+#small .sidebar .repi-txt .repi-content{width:100%;}
+#small .sidebar .repi-txt .repi-content .repi{width:100%;height:39px;float:left;margin-top:10px;padding:5px 0;}
+#small .sidebar .repi-txt .repi-content .repi .userface{width:39px;height:39px;float:left;}
+#small .sidebar .repi-txt .repi-content .repi .userface img{border-radius:100%;-moz-border-radius:100%;-webkit-border-radius:100%;-o-border-radius:100%;}
+#small .sidebar .repi-txt .repi-content .repi .usercomment{width:292px;height:32px;float:right;margin-top:7px;}
+#small .sidebar .repi-txt .repi-content .repi .usercomment em{width:6px;height:6px;overflow:hidden;background:url(http://mat1.gtimg.com/joke/golden/kb/repiTxtIcon.png) no-repeat;float:left;}
+#small .sidebar .repi-txt .repi-content .repi .usercomment p{clear:both;float:left;padding:0 6px;overflow:hidden;height:23px;line-height:23px;font-size:14px;color:#000;background:#fdd169;border-radius:0 6px 6px;-moz-border-radius:0 6px 6px;-webkit-border-radius:0 6px 6px;-o-border-radius:0 6px 6px;}
+#small .tcopyright{width:340px;}
+#small .imgbigbox img{max-width:367px;}
+#small #login_div{width:280px!important;height:270px!important;top:50px!important;margin:0 0 0 -140px!important;}
+
+
+
+
+.mask{width:100%;background:#000;opacity:0.5;filter:alpha(opacity=50);position:absolute;top:0;left:0;z-index:100;}
+.loginbtn{width:117px;height:38px;display:block;background:url(http://mat1.gtimg.com/joke/golden/kb/loginbtn.jpg) no-repeat;}
+.loginbtn:hover{background:url(http://mat1.gtimg.com/joke/golden/kb/loginbtnHover.jpg) no-repeat;}
+
+.more-top{border-bottom:1px solid #e0e0e0;padding:20px 0;}
+.more-top a{width:307px;height:36px;text-align:center;line-height:36px;border:1px solid #d4d4d4;border-radius:18px;-moz-border-radius:18px;-webkit-border-radius:18px;-o-border-radius:18px;font-size:14px;color:#909090;display:block;margin:0 auto;}
+.more-top a:hover{border:1px solid #e64929;color:#e64929;text-decoration:none;}
+.more-bottom{padding:38px 0;text-align:center;font-size:14px;color:#909090;}
+.box-txt,.box-imgsmall,.box-imgbig,.box-imgs,.box-video{width:100%;padding:17px 0 20px;border-bottom:1px solid #e0e0e0;position:relative;}
+.box-inner h2{font-size:20px;line-height:32px;font-weight:normal;margin-bottom:16px;}
+.imgsmallbox img{width:230px;height:180px;float:right;margin:4px 0 0 23px;}
+.imgbigbox{width:100%;margin-bottom:16px;}
+.imgbigbox img{max-width:582px;}
+.imgsbox{width:100%;margin-bottom:16px;overflow:hidden;}
+.imgsbox img{float:left;margin-right:5px;}
+.imgsbox .imgsboxinner{}
+.img_wrap{width:230px;height:180px;float:left;display:bolck;overflow:hidden;margin-right: 5px;};
+.videobox{width:100%;}
+.box-imgs .btnleft{display:none;cursor:pointer;width:31px;height:31px;background:url(http://mat1.gtimg.com/joke/golden/kb/picscrollleft.png) no-repeat;position:absolute;bottom:146px;left:10px;opacity:0.5;filter:alpha(opacity=50);}
+.box-imgs .btnleft:hover{opacity:0.7;filter:alpha(opacity=70);}
+.box-imgs .btnright{display:none;cursor:pointer;width:31px;height:31px;background:url(http://mat1.gtimg.com/joke/golden/kb/picscrollright.png) no-repeat;position:absolute;bottom:146px;right:10px;opacity:0.5;filter:alpha(opacity=50);}
+.box-imgs .btnright:hover{opacity:0.7;filter:alpha(opacity=70);}
+.wxfloat{width:181px;height:239px;position:absolute;bottom:-75px;left:-200px;display:none;}
+.wxfloat .hd{width:100%;background:#f1f1f1;border-top-left-radius:10px;border-top-right-radius:10px;-moz-border-radius-topleft:10px;-moz-border-radius-topright:10px;-webkit-border-top-left-radius:10px;-webkit-border-top-right-radius:10px;padding-top:11px;text-align:center;}
+.wxfloat .hd img{width:109px;height:109px;border-radius:100%;-moz-border-radius:100%;-webkit-border-radius:100%;-o-border-radius:100%;}
+.wxfloat .bd{width:100%;padding-bottom:5px;float:left;background:#f1f1f1;}
+.wxfloat .bd h3{float:left;font-size:18px;font-weight:normal;padding:5px 24px 5px 9px;color:#020202;background:url(http://mat1.gtimg.com/joke/golden/kb/wxlogo.png) no-repeat right 12px;}
+.wxfloat .bd p{width:165px;max-height:60px;line-height:20px;overflow:hidden;float:left;font-size:14px;padding: 0 7px 0 9px;color:#909090;}
+.wxfloat .ft{width:100%;float:left;background:#9d9d9d;border-bottom-left-radius:10px;border-bottom-right-radius:10px;-moz-border-radius-bottomleft:10px;-moz-border-radius-bottomright:10px;-webkit-border-bottom-left-radius:10px;-webkit-border-bottom-right-radius:10px;}
+.wxfloat .ft p{font-size:14px;color:#fafafa;padding:6px 0 6px 9px;}
+.wxfloat .wxfloaticon{width:13px;height:21px;background:url(http://mat1.gtimg.com/joke/golden/kb/wxfloaticon.png) no-repeat;position:absolute;top:125px;right:-13px;}
+.tips p{float:left;font-size:14px;color:#909090;padding-top:14px;}
+.tips .shareIcon{width:33px;height:33px;display:none;background:url(http://mat1.gtimg.com/joke/golden/kb/shareIcon.png) no-repeat;cursor:pointer;float:right;margin-left:12px;}
+.tips .likeIcon{width:33px;height:33px;display:none;background:url(http://mat1.gtimg.com/joke/golden/kb/likeIcon.png) no-repeat;cursor:pointer;float:right;}
+.tips .likeIcon:hover{background:url(http://mat1.gtimg.com/joke/golden/kb/likedIcon.png) no-repeat;}
+.tips .likedIcon{width:33px;height:33px;display:block;background:url(http://mat1.gtimg.com/joke/golden/kb/likedIcon.png) no-repeat;cursor:pointer;float:right;}
+
+.erweima-top{display:none;width:81px;height:66px;background:url(http://mat1.gtimg.com/kb/images/erweimatopbg.png) no-repeat;position:absolute;top:0;right:401px;z-index:9;}
+.erweima-top-layout{width:323px;height:164px;background:url(http://mat1.gtimg.com/kb/images/erweimatopbg3.png) no-repeat;position:absolute;top:52px;right:0;display:none;}
+.erweima-top:hover .erweima-top-layout{display:block;}
+.erweima-top-layout .ios{width:149px;height:38px;display:block;background:url(http://mat1.gtimg.com/kb/images/ios.png) no-repeat left top;position:absolute;top:62px;right:17px;}
+.erweima-top-layout .ios:hover{background-position:left -50px;}
+.erweima-top-layout .ios:active{background-position:left -100px;}
+.erweima-top-layout .android{width:149px;height:38px;display:block;background:url(http://mat1.gtimg.com/kb/images/android.png) no-repeat left top;position:absolute;top:111px;right:17px;}
+.erweima-top-layout .android:hover{background-position:left -50px;}
+.erweima-top-layout .android:active{background-position:left -100px;}
+#middle .erweima-top{display:none;}
+#small .erweima-top{display:none;}
+.phonefloat{width:100%;position:fixed;left:0;bottom:0;display:none;z-index:9999;}
+.phonefloat img{width:100%;}
+.phonefloat .phonedown{width:100%;height:100%;display:block;position:absolute;left:0;top:0;z-index:2;}
+.phonefloat .shutdown{width:6%;height:50%;display:block;cursor:pointer;position:absolute;right:0;top:0;z-index:3;}
+
+            #page{
+                height:30px;
+                padding:60px 0px;
+            }
+            #page a{
+                display:block;
+                float:left;
+                margin-right:10px;
+                padding:2px 12px;
+                height:24px;
+                border:1px #cccccc solid;
+                background:#fff;
+                text-decoration:none;
+                color:#808080;
+                font-size:12px;
+                line-height:24px;
+            }
+            #page a:hover{
+                color:#e13b19;
+                border:1px #e13b19 solid;
+            }
+            #page a.cur{
+                border:1px solid #e13b19;
+                background:#e13b19;
+                color:#fff;
+            }
+            #page p{
+                float:left;
+                padding:2px 12px;
+                font-size:12px;
+                height:24px;
+                line-height:24px;
+                color:#bbb;
+                border:1px #ccc solid;
+                background:#fcfcfc;
+                margin-right:8px;
+
+            }
+            #page p.pageRemark{
+                border-style:none;
+                background:none;
+                margin-right:0px;
+                padding:4px 0px;
+                color:#666;
+            }
+            #page p.pageRemark b{
+                color:#e13b19;
+            }
+            #page p.pageEllipsis{
+                border-style:none;
+                background:none;
+                padding:4px 0px;
+                color:#808080;
+            }
+#page{ text-align: center;}
+#page a,
+#page p{ display: inline-block; *display: inline; *zoom: 1; float: none;} 
+</style>
+</head>
+	<body id="large">
+		<div class="top">
+			<a href="http://kb.qq.com/" target="_blank" id="imglogo" class="logo"></a>
+			<img style="float:right;display:none;" src="http://mat1.gtimg.com/kb/images/logined.png" id="imglogined">
+			<div class="login-layout" style="" id="login-layout">
+				<div class="login" style="display:block;" id="FaceLogin">
+					<a href="javascript:void(0)" class="logintopbtn" bosszone="login"></a>
+				</div>
+				<div class="logined" style="display:none;" id="FaceLogined">
+					<img src="http://q3.qlogo.cn/g?b=qq&amp;k=iapdRtRB5xGp4Qf4EHhuQpQ&amp;s=40&amp;t=1370365179" id="Face">
+					<p class="loginout" style="display:none;" id="loginoutbtn"><a href="javascript:void(0)">退出</a></p>
+				</div>
+			</div>
+			<div class="weather-layout" id="weather-layout">
+				<div id="weather-icon"><img src="<?php echo $web_site.'/images/weather/'.$weather_data[0][3]; ?>"></div>
+				<p id="weather-city"><?php echo $weather_data[0][0]; ?></p>
+				<p class="weather-temperature"><span id="weather-temperature"><?php echo $weather_data[0][1]; ?></span>℃</p>
+			</div>
+
+			<div class="erweima-top">
+				<div class="erweima-top-layout">
+					<a href="https://itunes.apple.com/cn/app/kuai-bao/id996866372" class="ios" target="_blank" bosszone="iosdownload"></a>
+					<a href="http://view.inews.qq.com/newsDownLoad?refer=biznew&amp;src=kb_gov&amp;ostype=android" class="android" target="_blank" bosszone="androiddownload"></a>
+				</div>
+			</div>
+			<!-- 中版大版导航 -->
+			<div class="navLayout">
+				<ul class="topul" bosszone="nav">
+					<li class="current"><a href="http://kb.qq.com/" bosszone="index">推荐</a></li>
+					<li class="local"><a href="http://kb.qq.com/local.htm" id="cityName" bosszone="local" style="display: block;">武汉</a></li>
+					<li><a href="http://kb.qq.com/tech.htm" bosszone="tech">互联网</a></li>
+					<li><a href="http://kb.qq.com/sports.htm" bosszone="sports">体育</a></li>
+					<li><a href="http://kb.qq.com/bagua.htm" bosszone="bagua">娱乐</a></li>
+					<li class="hideListCont" id="hideListCont" style="width: 560px;"><ul id="wrapul" class="wrapul"><li><a href="http://kb.qq.com/gif.htm" bosszone="gif">GIF</a></li><li><a href="http://kb.qq.com/mil.htm" bosszone="mil">军事</a></li><li><a href="http://kb.qq.com/qipa.htm" bosszone="qipa">社会</a></li><li><a href="http://kb.qq.com/image.htm" bosszone="image">图片</a></li><li><a href="http://kb.qq.com/chaobao.htm" bosszone="chaobao">时尚</a></li><li><a href="http://kb.qq.com/finance.htm" bosszone="finance">财经</a></li><li><a href="http://kb.qq.com/NBA.htm" bosszone="NBA">NBA</a></li><li><a href="http://kb.qq.com/history.htm" bosszone="history">历史</a></li></ul></li>
+				</ul>
+			</div>
+			<!-- 小版导航 -->
+			<div class="small_nav">
+				<ul class="topul" bosszone="nav" id="small_topul">
+					<li class="current"><a href="http://kb.qq.com/" bosszone="index">推荐</a></li>
+					<li class="local"><a href="http://kb.qq.com/local.htm" id="cityName" bosszone="local">北京</a></li>
+					<li><a href="http://kb.qq.com/tech.htm" bosszone="tech">互联网</a></li>
+					<li><a href="http://kb.qq.com/sports.htm" bosszone="sports">体育</a></li>
+					<li><a href="http://kb.qq.com/bagua.htm" bosszone="bagua">娱乐</a></li>
+					<li><a href="http://kb.qq.com/gif.htm" bosszone="index">GIF</a></li>
+					<li><a href="http://kb.qq.com/mil.htm" bosszone="mil">军事</a></li> 
+					<li><a href="http://kb.qq.com/qipa.htm" bosszone="qipa">社会</a></li>
+					<li><a href="http://kb.qq.com/image.htm" bosszone="image">图片</a></li>
+					<li class="more_nav" id="more_nav"><a href="javascript:void(0);" id="morenavtext">更多</a></li>
+					<li><a href="http://kb.qq.com/gif.htm" bosszone="index">时尚</a></li>
+					<li><a href="http://kb.qq.com/mil.htm" bosszone="mil">财经</a></li> 
+					<li><a href="http://kb.qq.com/qipa.htm" bosszone="qipa">NBA</a></li>
+					<li><a href="http://kb.qq.com/image.htm" bosszone="image">历史</a></li>
+				</ul>
+			</div>
+		</div>
+		<div class="content" id="content">
+			<div class="contentLeft">
+				<div class="more-top" id="moreTop" style="display:none" onClick="window.location.reload();">
+					<a href="javascript:void(0)">您有未读妙招，点击查看</a>
+				</div>
+				<div class="contentList" id="newsList" bosszone="newsList">
+<?php
+foreach($list as $k => $item) {
+if(count($item['pic']) >= 3) {
+?>
+				<div class="box-imgs"><div class="box-inner clear"><h2><a href="<?php echo $web_site.'/article.php?id='.$item['id']; ?>" target="_blank"><?php echo $item['title']; ?></a></h2><div class="imgsbox" action-type="imgsbox"><div class="imgsboxinner clear" style="width: 1060px;" action-type="imgsboxinner">
+				<?php
+				for($i=0; $i<3; $i++) {
+				    $img_url = str_replace('_IMG_URL_', 'http://www.wmz.com/pic/small/', $item['pic'][$i]);
+				?>
+				<a href="<?php echo $web_site.'/article.php?id='.$item['id']; ?>" target="_blank" class="img_wrap"><img src="<?php echo $img_url; ?>"></a>
+				<?php
+				}
+				?>
+				</div><div class="btnleft" action-type="scrollLeft"></div><div class="btnright" action-type="scrollRight"></div></div><div class="tips"><p>腾讯图片 · 1天前</p><em class="shareIcon"></em><em class="likeIcon"></em></div></div></div>
+<?php
+} elseif(count($item['pic']) >= 1) {
+?>
+				<div class="box-imgsmall"><div class="box-inner clear"><div class="imgsmallbox"><a href="<?php echo $web_site.'/article.php?id='.$item['id']; ?>" target="_blank"><img src="<?php
+				$img_url = str_replace('_IMG_URL_', 'http://www.wmz.com/pic/small/', $item['pic'][0]);
+				echo $img_url;
+				?>"></a></div><h2><a href="<?php echo $web_site.'/article.php?id='.$item['id']; ?>" target="_blank"><?php echo $item['title']; ?></a></h2><div class="tips"><p>天天快报 · 23小时前</p><em class="shareIcon"></em><em class="likeIcon"></em></div></div></div>
+<?php
+} else {
+?>
+				<div class="box-txt"><div class="box-inner clear"><h2><a href="<?php echo $web_site.'/article.php?id='.$item['id']; ?>" target="_blank"><?php echo $item['title']; ?></a></h2><div class="tips"><p>长安剑 · 1天前</p><em class="shareIcon"></em><em class="likeIcon"></em></div></div></div>
+<?php
+}
+
+}
+?>
+				</div>
+                <div>
+				  <div id="page"><p>首页</p><p>上一页</p><a href='?page=1' title='第1页' class='cur'>1</a><a href='?page=2' title='第2页'>2</a><a href='?page=3' title='第3页'>3</a><a href='?page=4' title='第4页'>4</a><a href='?page=5' title='第5页'>5</a><p class='pageEllipsis'>...</p><a href='?page=2' title='下一页'>下一页</a><a href='?page=57' title='尾页'>尾页</a><p class='pageRemark'>共<b>57</b>页<b>568</b>条数据</p>
+				  </div>
+                </div>
+				
+			</div>
+		</div><div id="sidebar" class="sidebar clear" style="top: 66px; position: absolute;"><div class="asd02" bosszone="adrighttop"><a target="_blank" href="http://kuaibao.qq.com/download.html"><img src="http://mat1.gtimg.com/kb/images/appdr.png"></a></div><div class="hd"><h3>热门批注</h3></div><div class="bd clear" id="sidecont"><div class="repi-img" bosszone="sidebar"><div class="repi-title"><h4><a href="http://kb.qq.com/article.htm?id=20151203A01R1R00&amp;commentid=1260902772" target="_blank">看外国小伙是怎么求婚的？相比之下你是不是弱爆了？</a></h4></div>
+		</div><div class="repi-img" bosszone="sidebar" style="float:right;"><div class="repi-title"><h4><a href="http://kb.qq.com/article.htm?id=20151203A03HME00&amp;commentid=1261249441" target="_blank">2015身价最高的十大超模！你喜欢哪一位？</a></h4></div>
+		</div><div class="repi-img" bosszone="sidebar"><div class="repi-title"><h4><a href="http://kb.qq.com/article.htm?id=20151203A03GAB00&amp;commentid=1261232168" target="_blank">这些画是他用10个符号当画笔打印出来的，你信吗？</a></h4></div>
+		</div><div class="repi-img" bosszone="sidebar" style="float:right;"><div class="repi-title"><h4><a href="http://kb.qq.com/article.htm?id=20151202C03SH400&amp;commentid=1260454943" target="_blank">有了它，冬天上班上学再也不用出被窝了！</a></h4></div>
+		</div><div class="repi-img" bosszone="sidebar"><div class="repi-title"><h4><a href="http://kb.qq.com/article.htm?id=20151203A0331V00&amp;commentid=1261108514" target="_blank">性感美女or相貌平平，科技富豪的女人都长什么样？</a></h4></div>
+		</div></div><div class="asd01" bosszone="adrightbottom"><a target="_blank" href="http://news.qq.com/zt2015/AK47/index.htm"><img src="http://mat1.gtimg.com/kb/images/asd01.jpg"></a></div><div class="ft" bosszone="appDownload"><a href="http://kuaibao.qq.com/download.html" target="_blank"></a><div class="ftios"></div></div><a href="http://support.qq.com/write.shtml?fid=1174&amp;ADPUBNO=" class="fankui" bosszone="fankui" target="_blank"></a></div>
+	<!--ol20130819--><!--pgv 20140225v1.0.3 by Austinjin-->
+
+
+<!--[if !IE]>|xGv00|f3e03201190b3625764e435221a2d6a1<![endif]--><!--[if !IE]>|xGv00|1a3a193a0249b0401b1fc3f77d548441<![endif]-->
+	<style>
+.tcopyright {width:960px;margin:0 auto;padding:8px 0;font-size:12px;line-height:28px;color:#333; text-align:center; overflow:hidden;clear:both;}
+.tcopyright .en{font-family:Arial;}
+.tcopyright a{color:#333;text-decoration: none;}
+.tcopyright a:hover{color:#bd0a01;text-decoration: underline;}
+</style>
+<div id="tcopyright" class="tcopyright" bosszone="footer" role="contentinfo">
+	<div>
+		<a href="http://www.tencent.com/" target="_blank" rel="nofollow">关于腾讯</a> | <a href="http://www.tencent.com/index_e.shtml" target="_blank" rel="nofollow">About Tencent</a> | <a href="http://www.qq.com/contract.shtml" target="_blank" rel="nofollow">服务协议</a> | <a href="http://www.qq.com/privacy.htm" target="_blank" rel="nofollow">隐私政策</a> | <a href="http://open.qq.com/" target="_blank" rel="nofollow">开放平台</a> | <a href="http://www.tencentmind.com/" target="_blank" rel="nofollow">广告服务</a> | <a href="http://hr.tencent.com/" target="_blank" rel="nofollow">腾讯招聘</a> | <a href="http://gongyi.qq.com/" target="_blank" rel="nofollow">腾讯公益</a> | <a href="http://service.qq.com/" target="_blank" rel="nofollow">客服中心</a> | <a href="http://www.qq.com/map/" target="_blank" rel="nofollow">网站导航</a>
+	</div>
+  	<div class="en">Copyright © 1998 - 2016 Tencent. All Rights Reserved</div>
+    <div>
+		<a href="http://www.tencent.com/" target="_blank" rel="nofollow">腾讯公司</a> <a href="http://www.tencent.com/zh-cn/le/copyrightstatement.shtml" target="_blank" rel="nofollow">版权所有</a>
+	</div>
+</div><!--[if !IE]>|xGv00|ebd6fb0d7fdd1cfabfeda4cf113fa32e<![endif]-->
+
+<div class="phonefloat">
+	<img src="http://mat1.gtimg.com/kb/images/phonedown.png">
+	<a href="http://view.inews.qq.com/newsDownLoad?refer=biznew&amp;src=kb_touch1&amp;by=dict" target="_blank" class="phonedown" bosszone="phonedownload"></a>
+	<span class="shutdown"></span>
+</div>	
+
+<!--boss脚本 结束--><!--[if !IE]>|xGv00|1703a820928d96b563b1dcad79ab06bb<![endif]-->
+<script type="text/javascript" src="<?php echo $web_site.'/js/jquery-1.11.1.min.js'; ?>"></script>
+<script type="text/javascript">
+var weather_data = <?php echo trim($weather_json, "\n"); ?>;
+var weather_index = 0, weather_length = weather_data.length, weather_icon = $('#weather-icon'), weather_city = $('#weather-city'), weather_temperature = $('#weather-temperature');
+var weather = function() {
+    weather_index++;
+    if(weather_index > weather_length - 1) {
+        weather_index = 0;
+    }
+    weather_icon.html('<img src="<?php echo $web_site ?>/images/weather/' + weather_data[weather_index][3] + '" />');
+    weather_city.html(weather_data[weather_index][0]);
+    weather_temperature.html(weather_data[weather_index][1]);
+}
+var weather_itr = setInterval(weather, 5000);
+
+var more_top = $('#moreTop'), more_top_itr = null; 
+more_top_itr = setTimeout(function(){
+    more_top_itr = null;
+    more_top.show();
+}, 18000);
+</script>
+</body>
+</html>
