@@ -95,14 +95,15 @@ print_r($pic_array);
             exec($cmd);
         }
 
-    $sql = "INSERT INTO online_article(category_id, title, pub_time, url, pic, content, create_time, source, recommend, status) VALUES(1, '".
+    $sql = "INSERT INTO online_article_tmp(category_id, title, pub_time, url, pic, content, create_time, source, recommend, status) VALUES(1, '".
               $mysqli->real_escape_string($row['title'])."', '".
               $mysqli->real_escape_string($row['pub_time'])."', '".
               $mysqli->real_escape_string($row['url'])."', '".
               $mysqli->real_escape_string(json_encode($pic))."', '".
-              $mysqli->real_escape_string($content)."', NOW(), '', 0, 0)";
+              $mysqli->real_escape_string($content)."', NOW(), 'web114结婚网', 0, 0)";
 //echo $sql, "\n";
     $mysqli->query($sql);
+
 //echo $content, "\n";
 //exit();
 }

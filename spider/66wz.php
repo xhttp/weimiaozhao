@@ -7,13 +7,13 @@ $base_url = 'http://health.66wz.com';
 $crawler_category = '';
 
 $category_conf = array(array('url' => 'http://health.66wz.com/ysbj/', 'name' => '养生保健', 'max' => 163, 'min' => 100, 'path' => 'http://health.66wz.com/system/count/0005036/000000000000/000/000/c0005036000000000000_000000'),
-                       //array('url' => 'http://health.66wz.com/ys/', 'name' => '饮食', 'max' => 38, 'min' => 35, 'path' => 'http://health.66wz.com/system/count/0005029/000000000000/000/000/c0005029000000000000_0000000'),
-                       //array('url' => 'http://health.66wz.com/aml/pfmr/', 'name' => '皮肤美容', 'max' => 20, 'min' => 17, 'path' => 'http://health.66wz.com/system/count/0005009/002000000000/000/000/c0005009002000000000_0000000'), 
-                       //array('url' => 'http://health.66wz.com/aml/mbmr/', 'name' => '面部美容', 'max' => 31, 'min' => 28, 'path' => 'http://health.66wz.com/system/count/0005009/001000000000/000/000/c0005009001000000000_0000000'), 
-                       //array('url' => 'http://health.66wz.com/aml/xtmr/', 'name' => '型体美容', 'max' => 19, 'min' => 16, 'path' => 'http://health.66wz.com/system/count/0005009/004000000000/000/000/c0005009004000000000_0000000'),
+                       array('url' => 'http://health.66wz.com/ys/', 'name' => '饮食', 'max' => 38, 'min' => 35, 'path' => 'http://health.66wz.com/system/count/0005029/000000000000/000/000/c0005029000000000000_0000000'),
+                       array('url' => 'http://health.66wz.com/aml/pfmr/', 'name' => '皮肤美容', 'max' => 20, 'min' => 17, 'path' => 'http://health.66wz.com/system/count/0005009/002000000000/000/000/c0005009002000000000_0000000'), 
+                       array('url' => 'http://health.66wz.com/aml/mbmr/', 'name' => '面部美容', 'max' => 31, 'min' => 28, 'path' => 'http://health.66wz.com/system/count/0005009/001000000000/000/000/c0005009001000000000_0000000'), 
+                       array('url' => 'http://health.66wz.com/aml/xtmr/', 'name' => '型体美容', 'max' => 19, 'min' => 16, 'path' => 'http://health.66wz.com/system/count/0005009/004000000000/000/000/c0005009004000000000_0000000'),
                        array('url' => 'http://health.66wz.com/jfss/yqdjfssf/', 'name' => '减肥塑身知识', 'max' => 16, 'min' => 13, 'path' => 'http://health.66wz.com/system/count/0005004/003000000000/000/000/c0005004003000000000_0000000'),
-                       //array('url' => 'http://health.66wz.com/jfss/jfssffqjc/', 'name' => '减肥塑身法', 'max' => 31, 'min' => 28, 'path' => 'http://health.66wz.com/system/count/0005004/004000000000/000/000/c0005004004000000000_0000000'),
-                       //array('url' => 'http://health.66wz.com/jfss/wyjfssty/', 'name' => '减肥塑身全体验', 'max' => 4, 'min' => 1, 'path' => 'http://health.66wz.com/system/count//0005004/002000000000/000/000/c0005004002000000000_00000000'),
+                       array('url' => 'http://health.66wz.com/jfss/jfssffqjc/', 'name' => '减肥塑身法', 'max' => 31, 'min' => 28, 'path' => 'http://health.66wz.com/system/count/0005004/004000000000/000/000/c0005004004000000000_0000000'),
+                       array('url' => 'http://health.66wz.com/jfss/wyjfssty/', 'name' => '减肥塑身全体验', 'max' => 4, 'min' => 1, 'path' => 'http://health.66wz.com/system/count//0005004/002000000000/000/000/c0005004002000000000_00000000'),
                        );
 
 $header = 'Accept:text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8
@@ -161,7 +161,7 @@ foreach($category_conf as $category_item) {
                     $content .= $detail_body_array[1];
                 }
 
-                if(preg_match('/<a href= (http:\/\/[a-z0-9\/\_]+\.shtml)>下一页/isU', $detail_body, $detail_url_array)) {
+                if(preg_match('/<a href= (http:\/\/[a-z0-9\/\_\-\.]+\.shtml)>下一页/isU', $detail_body, $detail_url_array)) {
                     $detail_url = $detail_url_array[1];
                     $page_no++;
                 } else {

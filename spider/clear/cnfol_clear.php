@@ -18,7 +18,7 @@ $header_array = explode("\n", $header);
 
 // list
 $sql = "SELECT * FROM crawler_article WHERE url LIKE '".$base_url."%'";
-//$sql = "SELECT * FROM crawler_article WHERE url = 'http://www.wed114.cn/jiehun/shishangbaobao/2012061165743.html'";
+//$sql = "SELECT * FROM crawler_article WHERE url = 'http://auto.cnfol.com/chezhuketang/20151029/21681261.shtml'";
 $result = $mysqli->query($sql);
 while($row = $result->fetch_assoc()) {
 echo $row['url'], "\n";
@@ -29,7 +29,7 @@ echo $row['url'], "\n";
     $content = str_replace("\n", "", $content);
     $content = preg_replace('/<style>.*<\/style>/', '', $content);
     $content = preg_replace('/<script.*<\/script>/isU', '', $content);
-    $content = strip_tags($content, '<div> <p> <img>');
+    $content = strip_tags($content, '<div> <p> <img> <br>');
     $content = str_replace("\t", '', $content);
     $content = str_replace("　", '', $content);
     $content = str_replace(" border='0' onload='javascript:if(this.width500)this.width=500' align='center' hspace=10 vspace=10", '', $content);
@@ -38,8 +38,24 @@ echo $row['url'], "\n";
     $content = str_replace("'>", '">', $content);
     $content = str_replace('【汽车点评·用车·原创】', '', $content);
     $content = str_replace('责任编辑：auto001', '', $content);
+    $content = str_replace('<div style="display:none" id="pointText"></div>', '', $content);
+    $content = str_replace(' onclick="javascript:AutoPicPages(event);" onmousemove="changeMouse(event);" onmouseout="removeDiv();" class=""', '', $content);
+    //$content = str_replace('<b>', '<p>', $content);
+    //$content = str_replace('</b>', '</p>', $content);
+    $content = str_replace('<br /><br />', '<br />', $content);
+    $content = str_replace('<br clear="all">', '', $content);
 
-echo $content, "\n";
+    $content_array = explode('<br />', $content);
+    $content = '';
+    foreach($content_array as $c) {
+        $content .= '<p>'.$c.'</p>';
+    }
+    $content = str_replace('<p></p>', '', $content);
+    $content = str_replace('<br />', '', $content);
+    $content = str_replace('<br/>', '', $content);
+    $content = str_replace('<p><img ', '<p align="center"><img ', $content);
+
+//echo $content, "\n";
 //exit();
     $pic_array = array();
     $pic = array();
@@ -55,16 +71,20 @@ print_r($pic_array);
             sleep(1);
             $http_pic_url = $pic_url;
             $pic_host = parse_url($http_pic_url);
-            $header_array[6] = 'Host:'.$pic_host['host'];
+            $header_array[5] = 'Host:'.$pic_host['host'];
 //print_r($header_array);
 //exit();
 //echo $http_pic_url;
 //xit();
             $ret = http_get($http_pic_url, $header_array);
-print_r($ret['info']);
+//print_r($ret['info']);
 //exit();
             if($ret['info']['http_code'] != 200) {
                 $ret = http_get($http_pic_url, $header_array);
+            }
+
+            if($ret['info']['http_code'] != 200) {
+                continue;
             }
 
             $img_hash = md5($pic_url);
@@ -99,14 +119,16 @@ print_r($ret['info']);
             exec($cmd);
         }
 
-    $sql = "INSERT INTO online_article(category_id, title, pub_time, url, pic, content, create_time, source, recommend, status) VALUES(1, '".
+    $sql = "INSERT INTO online_article_tmp(category_id, title, pub_time, url, pic, content, create_time, source, recommend, status) VALUES(1, '".
               $mysqli->real_escape_string($row['title'])."', '".
               $mysqli->real_escape_string($row['pub_time'])."', '".
               $mysqli->real_escape_string($row['url'])."', '".
               $mysqli->real_escape_string(json_encode($pic))."', '".
-              $mysqli->real_escape_string($content)."', NOW(), '', 0, 0)";
+              $mysqli->real_escape_string($content)."', NOW(), 'web114结婚网', 0, 0)";
 //echo $sql, "\n";
+//exit();
     $mysqli->query($sql);
+
 //echo $content, "\n";
 //exit();
 }
